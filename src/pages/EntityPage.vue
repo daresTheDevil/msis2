@@ -306,7 +306,7 @@
           <v-card-text v-show="show">
             <v-layout row>
 
-              <v-flex xs4>
+              <v-flex xs4 d-flex>
                 <v-layout column>
                   <v-flex>
                     <v-card tile class="primary" dark>
@@ -335,7 +335,7 @@
                 </v-layout>
               </v-flex>
 
-              <v-flex xs8>
+              <v-flex xs8 d-flex>
                 <v-layout column>
                   <v-flex>
                     <v-card tile>
@@ -354,9 +354,9 @@
                       </v-toolbar>
                     </v-card>
                   </v-flex>
-                <v-flex>
+                <v-flex d-flex>
                     <v-card tile>
-                        <line-chart></line-chart>
+                    <line-chart height="159"></line-chart>
                 </v-card>
                   </v-flex>
                 </v-layout>
@@ -374,7 +374,7 @@
       <v-container grid-list-sm>
         <v-layout row wrap align-center>
           <v-flex xs12 md4>
-            <line-chart :width="100" :height="100"></line-chart>
+            <line-chart :height="100"></line-chart>
             <h1 class="headline font-weight-bold">Math Components</h1>
             <h1 class="subheading">Measurements of student performance on the statewide math assessment.</h1>
           </v-flex>
@@ -432,7 +432,7 @@
 import json from '../data/entities.json'
 import GaugeChart from '../components/charts/GaugeChart.vue'
 import CardbarChart from '../components/charts/CardbarChart.vue'
-import LineChart from '../components/charts/LineChart'
+import LineChart from '../components/charts/LineChart.vue'
 
 export default {
   components: {
