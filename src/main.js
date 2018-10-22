@@ -7,9 +7,14 @@ import Vuetify from 'vuetify'
 import VueLayers from 'vuelayers'
 import 'vuelayers/lib/style.css'
 import 'vuetify/dist/vuetify.min.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
+import '@mdi/font/css/materialdesignicons.css'
+import '@fortawesome/fontawesome-free/css/all.css'
 
-Vue.use(Vuetify)
 Vue.use(VueLayers)
+Vue.use(Vuetify, {
+  iconfont: 'mdi' // 'md' || 'mdi' || 'fa' || 'fa4'
+})
 
 Vue.config.productionTip = false
 
