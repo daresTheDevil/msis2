@@ -31,7 +31,7 @@ export default {
           display: false
         },
         tooltips: {
-          enabled: false
+          enabled: true
         }
       }
 

@@ -1,11 +1,10 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      persistent
-      :mini-variant="miniVariant"
       :clipped="clipped"
       v-model="drawer"
       enable-resize-watcher
+      temporary
       fixed
       app
     >
@@ -118,7 +117,8 @@ export default {
         { name: 'MSRC', icon: 'fa fa-hands-helping', link: '/msrc' },
         { name: 'Advanced', icon: 'fa fa-search-location', link: '/data' },
         { name: 'Dashboards', icon: 'fa fa-chart-bar', link: '/dashboards' },
-        { name: 'Maps', icon: 'fa fa-map', link: '/' }
+        { name: 'Maps', icon: 'fa fa-map', link: '/maps' },
+        { name: 'New Map', icon: 'fa fa-marker', link: '/newmap' }
       ],
       title: 'MSIS'
     }

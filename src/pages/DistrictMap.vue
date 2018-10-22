@@ -1,38 +1,47 @@
 <template>
   <v-container>
-    <v-layout>
-      <v-flex>
-        <v-card raised>
+    <v-layout row wrap>
+      <v-flex xs12>
+        <v-card flat>
+          <v-card-title class="pa-0">
+            <v-toolbar flat>
+          <v-toolbar-title>Districts</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn icon>
+            <v-icon>search</v-icon>
+          </v-btn>
+        </v-toolbar>
+          </v-card-title>
+
           <v-card-text class="pa-0">
-            <vl-map :load-tiles-while-animating="true" :load-tiles-while-interacting="true" data-projection="EPSG:4326" style="height: 400px">
-      <vl-view :zoom.sync="zoom" :center.sync="center" :rotation.sync="rotation"></vl-view>
+            <vl-map :load-tiles-while-animating="true" :load-tiles-while-interacting="true" data-projection="EPSG:4326"
+              style="height: 400px">
+              <vl-view :zoom.sync="zoom" :center.sync="center" :rotation.sync="rotation"></vl-view>
 
-      <vl-geoloc @update:position="geolocPosition = $event">
-        <template slot-scope="geoloc">
-          <vl-feature v-if="geoloc.position" id="position-feature">
-            <vl-geom-point :coordinates="geoloc.position"></vl-geom-point>
-            <vl-style-box>
-              <vl-style-icon src="_media/marker.png" :scale="0.4" :anchor="[0.5, 1]"></vl-style-icon>
-            </vl-style-box>
-          </vl-feature>
-        </template>
-      </vl-geoloc>
+              <vl-geoloc @update:position="geolocPosition = $event">
+                <template slot-scope="geoloc">
+                  <vl-feature v-if="geoloc.position" id="position-feature">
+                    <vl-geom-point :coordinates="geoloc.position"></vl-geom-point>
+                    <vl-style-box>
+                      <vl-style-icon src="_media/marker.png" :scale="0.4" :anchor="[0.5, 1]"></vl-style-icon>
+                    </vl-style-box>
+                  </vl-feature>
+                </template>
+              </vl-geoloc>
 
-      <vl-layer-tile id="osm">
-        <vl-source-osm></vl-source-osm>
-      </vl-layer-tile>
-    <vl-layer-vector>
-        <vl-source-vector :features.sync="features" :id.sync="features.NAME"></vl-source-vector>
+              <vl-layer-tile id="osm">
+                <vl-source-osm></vl-source-osm>
+              </vl-layer-tile>
+              <vl-layer-vector>
+                <vl-source-vector :features.sync="features" :id.sync="features.NAME"></vl-source-vector>
 
-        <vl-style-box>
-          <vl-style-stroke color="#00BCD4" :width="1"></vl-style-stroke>
-          <vl-style-fill color="rgba(255,255,255,0.7)"></vl-style-fill>
-        </vl-style-box>
-      </vl-layer-vector>
+                <vl-style-box>
+                  <vl-style-stroke color="#00BCD4" :width="1"></vl-style-stroke>
+                  <vl-style-fill color="rgba(255,255,255,0.7)"></vl-style-fill>
+                </vl-style-box>
+              </vl-layer-vector>
 
-    </vl-map>
-
-
+            </vl-map>
           </v-card-text>
 
           <v-card-text>
@@ -43,6 +52,8 @@
 
       </v-flex>
     </v-layout>
+
+
   </v-container>
 </template>
 

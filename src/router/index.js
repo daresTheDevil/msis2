@@ -7,6 +7,7 @@ import DataHome from '@/pages/DataHome'
 import DashboardHome from '@/pages/DashboardHome'
 import MsisHome from '@/pages/MsisHome'
 import EntityPage from '@/pages/EntityPage'
+import NewMap from '@/pages/NewMap'
 
 Vue.use(Router)
 
@@ -18,7 +19,7 @@ export default new Router({
       component: MsisHome
     },
     {
-      path: '/',
+      path: '/msrc',
       name: 'MSRC',
       component: MsrcHome
     },
@@ -33,7 +34,7 @@ export default new Router({
       component: DashboardHome
     },
     {
-      path: '/map',
+      path: '/maps',
       name: 'Maps',
       component: DistrictMap
     },
@@ -42,6 +43,11 @@ export default new Router({
       name: 'entity',
       component: EntityPage,
       props: true
+    },
+    {
+      path: '/newmap',
+      name: 'New Map',
+      component: NewMap
     }
   ]
 })

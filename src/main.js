@@ -5,12 +5,15 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import VueLayers from 'vuelayers'
+import Vue2Leaflet from 'vue2-leaflet'
 import 'vuelayers/lib/style.css'
 import 'vuetify/dist/vuetify.min.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import '@mdi/font/css/materialdesignicons.css'
 import '@fortawesome/fontawesome-free/css/all.css'
+import 'leaflet/dist/leaflet.css'
 
+Vue.use(Vue2Leaflet)
 Vue.use(VueLayers)
 Vue.use(Vuetify, {
   iconfont: 'mdi' // 'md' || 'mdi' || 'fa' || 'fa4'
