@@ -11,17 +11,28 @@ export default {
           {
             label: 'Data One',
             backgroundColor: '#f87979',
-            data: [40, 39, 10]
+            data: [89, 90, 91],
+            pointBackgroundColor: 'white',
+            pointBorderColor: '#0D47A1',
+            borderWidth: '2',
+            fill: false,
+            borderColor: '#0D47A1'
           }
         ]
       },
       options: {
+        legend: {
+          display: false
+        },
         scales: {
           xAxes: [{
-            display: false
+            display: true,
+            gridLines: {
+              drawOnChartArea: true
+            }
           }],
           yAxes: [{
-            display: false,
+            display: true,
             ticks: {
               beginAtZero: true
             }

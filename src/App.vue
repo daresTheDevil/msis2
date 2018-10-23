@@ -7,6 +7,7 @@
       temporary
       fixed
       app
+      v-show="$vuetify.breakpoint.sm"
     >
       <v-list>
         <v-list-tile
@@ -28,7 +29,7 @@
       app
       :clipped-left="clipped"
     >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon v-show="$vuetify.breakpoint.sm" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>

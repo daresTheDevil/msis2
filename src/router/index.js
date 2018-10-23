@@ -24,6 +24,11 @@ export default new Router({
       component: MsrcHome
     },
     {
+      path: '/',
+      name: 'Home',
+      component: MsrcHome
+    },
+    {
       path: '/data',
       name: 'Data',
       component: DataHome

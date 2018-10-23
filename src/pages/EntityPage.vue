@@ -3,13 +3,13 @@
     <section class="light-blue lighten-5">
       <v-container grid-list-md>
         <v-layout row wrap align-center>
-          <v-flex xs1>
+          <v-flex xs12 md1>
             <v-avatar color="teal" size="72">
               <span class="white--text display-3 font-weight-bold">{{ entity.EntityGrade }}</span>
             </v-avatar>
           </v-flex>
 
-          <v-flex xs11>
+          <v-flex xs12 md11>
             <h1 class="display-2 font-weight-bold">
               {{ entity.EntityDisplayName }}
             </h1>
@@ -125,13 +125,14 @@
     </section>
 
 
-    <section class="primary lighten-2 my-0">
+    <section class="my-0">
       <v-container class="my-0 py-0">
-        <v-breadcrumbs divider="-">
-          <v-breadcrumbs-item><v-icon>home</v-icon></v-breadcrumbs-item>
-          <v-breadcrumbs-item to="/entity/0000-000">State</v-breadcrumbs-item>
-          <v-breadcrumbs-item v-if="entity.EntityType == 'District'">{{ entity.ParentEntityName }}</v-breadcrumbs-item>
-          <v-breadcrumbs-item v-else-if="entity.EntityType == 'School'">{{ entity.EntityDisplayName }}</v-breadcrumbs-item>
+        <v-breadcrumbs divider="-" light>
+          <v-breadcrumbs-item class="white--text"><v-icon>home</v-icon></v-breadcrumbs-item>
+          <v-breadcrumbs-item class="white--text" to="/entity/0000-000">State</v-breadcrumbs-item>
+          <v-breadcrumbs-item class="white--text" v-if="entity.EntityType == 'District'">{{ entity.EntityDisplayName }}</v-breadcrumbs-item>
+          <v-breadcrumbs-item class="white--text" v-else-if="entity.EntityType == 'School'">{{ entity.ParentEntityName }}</v-breadcrumbs-item>
+          <v-breadcrumbs-item class="white--text" v-if="entity.EntityType == 'School'">{{ entity.EntityDisplayName }}</v-breadcrumbs-item>
         </v-breadcrumbs>
       </v-container>
     </section>
@@ -217,101 +218,37 @@
       </v-container>
     </section>
 
-        <section class="teal lighten-5">
-      <v-container>
-        <v-layout row wrap justify-center>
-          <v-flex xs10>
-            <v-card raised class="py-0">
-              <v-btn
-              color="pink"
-              dark
-              small
-              absolute
-              bottom
-              right
-              fab
-              @click="show = !show"
-            >
-              <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
-            </v-btn>
-              <v-container fluid grid-list-xl>
-                <v-layout row wrap align-center justify-space-between>
-                  <v-flex shrink>
-                    <v-avatar size="64">
-                      <img src="@/assets/calculator.svg" />
-                    </v-avatar>
-                  </v-flex>
-                  <v-flex xs5>
-                    <h1 class="headline font-weight-bold">Math Proficiency</h1>
-                    <h1 class="body-1">Percentage of students who scored proficient (levels 4 + 5) on the state math assessment</h1>
-                  </v-flex>
-                  <v-flex xs2>
-                    <h1 class="display-3 font-weight-black">
-                      98%
-                    </h1>
-                  </v-flex>
-                  <v-flex xs3>
-                    <v-layout row>
-                    <v-flex shrink  class="py-0"><h1 class="caption">Mississippi</h1></v-flex><v-spacer /><v-flex shrink class="py-0"><h1 class="caption">65%</h1></v-flex>
-                    </v-layout>
-                    <v-progress-linear color="info" height="10" value="45" class="my-0"></v-progress-linear>
-                    <v-layout row>
-                    <v-flex shrink  class="py-0"><h1 class="caption">{{ entity.ParentEntityName }}</h1></v-flex><v-spacer /><v-flex shrink class="py-0"><h1 class="caption">65%</h1></v-flex>
-                    </v-layout>
-                    <v-progress-linear color="info" height="10" value="45" class="my-0"></v-progress-linear>
-                    <v-layout row>
-                    <v-flex shrink  class="py-0"><h1 class="caption">{{ entity.EntityDisplayName }}</h1></v-flex><v-spacer /><v-flex shrink class="py-0"><h1 class="caption">65%</h1></v-flex>
-                    </v-layout>
-                    <v-progress-linear color="info" height="10" value="45" class="my-0"></v-progress-linear>
-                  </v-flex>
-                </v-layout>
-              </v-container>
-              <v-slide-y-transition>
-          <v-card-text v-show="show">
-            I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
-          </v-card-text>
-        </v-slide-y-transition>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </section>
-
-
 <section>
-  <v-container>
+  <v-container grid-list-xl>
     <v-layout row wrap>
-      <v-flex xs6>
-        <v-card raised>
-          <v-card-text>
-            <v-container class="pa-0" fluid grid-list-xl>
-              <v-layout row align-center justify-space-between>
-                <v-flex>
-                  <h1 class="title font-weight-bold">Math Proficiency</h1>
-                  <h1 class="body-1">Percentage of students who scored proficient (levels 4 + 5) on the state math
-                    assessment</h1>
-                </v-flex>
-                <v-spacer />
-                <v-flex>
-                  <h1 class="display-2 font-weight-bold">98%</h1>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card-text>
-          <v-btn color="pink" dark small absolute bottom right fab @click="show = !show">
-            <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
-          </v-btn>
-        </v-card>
-        <v-slide-y-transition>
-          <v-card-text v-show="show">
-            <v-layout row>
 
-              <v-flex xs4 d-flex>
-                <v-layout column>
-                  <v-flex>
-                    <v-card tile class="primary" dark>
-                  <v-card-title class="white--text">COMPARE:</v-card-title>
-                  <v-card-text class="white--text">
+      <v-flex xs12 md6>
+        <v-card class="pa-0">
+        <v-list three-line class="pa-0 primary darken-1" dark>
+          <v-list-tile>
+            <v-list-tile-content>
+              <v-list-tile-title class="title">
+                Math Proficiency
+              </v-list-tile-title>
+              <v-list-tile-sub-title>
+                Percentage of students who scored proficient (levels 4 + 5) on the state math assessment.
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+              <h1 class="display-2 font-weight-bold">98%</h1>
+            <v-list-tile-action>
+              <v-btn icon dark @click="mathprof = !mathprof">
+                <v-icon large class="amber--text">{{ mathprof ? 'fa fa-minus-circle' : 'fa fa-plus-circle' }}</v-icon>
+              </v-btn>
+            </v-list-tile-action>
+          </v-list-tile>
+        </v-list>
+        <v-slide-y-transition>
+          <v-card-text v-show="mathprof" class="pa-0">
+            <v-layout row>
+              <v-flex xs4 class="pr-0 pb-0">
+                <v-card flat tile dark color="primary lighten-1">
+                  <v-card-title>COMPARE:</v-card-title>
+                  <v-card-text class="pb-5">
                     <v-layout row>
                     <v-flex shrink  class="py-0"><h1 class="caption">Mississippi</h1></v-flex><v-spacer /><v-flex shrink class="py-0"><h1 class="caption">65%</h1></v-flex>
                     </v-layout>
@@ -326,104 +263,159 @@
                     <v-progress-linear color="white" height="10" value="45" class="my-0"></v-progress-linear>
                   </v-card-text>
                 </v-card>
-                  </v-flex>
-                <v-flex>
-                    <v-card tile class="primary darken-2">
-                  bottom left side
-                </v-card>
-                  </v-flex>
-                </v-layout>
               </v-flex>
-
-              <v-flex xs8 d-flex>
-                <v-layout column>
-                  <v-flex>
-                    <v-card tile>
-                      <v-toolbar flat dense color="white" class="px-0 mx-0">
-                        <v-overflow-btn
-                          :items="items"
-                          label="Select size"
-                          hide-details
-                          class="pa-0"
-                          overflow
-                          full-width
-                        ></v-overflow-btn>
-                        <v-divider vertical></v-divider>
-                        <v-icon large color="success" class="pr-0">keyboard_arrow_up</v-icon>
-                        <h1 class="headline font-weight-bold">27%</h1>
-                      </v-toolbar>
-                    </v-card>
-                  </v-flex>
-                <v-flex d-flex>
-                    <v-card tile>
-                    <line-chart height="159"></line-chart>
-                </v-card>
-                  </v-flex>
-                </v-layout>
+              <v-flex xs8 class="pl-0 pb-0">
+                <v-toolbar dense flat>
+                  <v-overflow-btn
+                    :items="items"
+                    label="Select data"
+                    hide-details
+                    class="pa-0"
+                  ></v-overflow-btn>
+                <v-icon class="success--text">keyboard_arrow_up</v-icon>
+                <h1 class="title font-weight-bold success--text">27%</h1>
+                </v-toolbar>
+                <line-chart class="mt-2" :height="140" />
               </v-flex>
-
             </v-layout>
           </v-card-text>
         </v-slide-y-transition>
+        </v-card>
       </v-flex>
+
+      <v-flex xs12 md4>
+        <v-card class="pa-0">
+        <v-list three-line class="pa-0 primary darken-1" dark>
+          <v-list-tile>
+            <v-list-tile-content>
+              <v-list-tile-title class="title">
+                English Proficiency
+              </v-list-tile-title>
+              <v-list-tile-sub-title>
+                <h1 class="caption">Percentage of students who scored proficient (levels 4 + 5) on the state english assessment.</h1>
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+              <h1 class="display-2 font-weight-bold">98%</h1>
+          </v-list-tile>
+        </v-list>
+        <v-card-actions class="pa-0">
+          <v-btn block color="primary" @click="engprof = !engprof">
+            Learn More
+                <v-icon right class="amber--text">{{ engprof ? 'fa fa-minus-circle' : 'fa fa-plus-circle' }}</v-icon>
+              </v-btn>
+        </v-card-actions>
+        <v-slide-y-transition>
+          <v-card-text v-show="engprof" class="pa-0">
+            <v-layout row>
+              <v-flex xs4 class="pr-0 pb-0">
+                <v-card flat tile dark color="primary lighten-1">
+                  <v-card-title>COMPARE:</v-card-title>
+                  <v-card-text class="pb-5">
+                    <v-layout row>
+                    <v-flex shrink  class="py-0"><h1 class="caption">Mississippi</h1></v-flex><v-spacer /><v-flex shrink class="py-0"><h1 class="caption">65%</h1></v-flex>
+                    </v-layout>
+                    <v-progress-linear color="white" height="10" value="45" class="my-0"></v-progress-linear>
+                    <v-layout row>
+                    <v-flex shrink  class="py-0"><h1 class="caption">District</h1></v-flex><v-spacer /><v-flex shrink class="py-0"><h1 class="caption">65%</h1></v-flex>
+                    </v-layout>
+                    <v-progress-linear color="white" height="10" value="45" class="my-0"></v-progress-linear>
+                    <v-layout row>
+                    <v-flex shrink  class="py-0"><h1 class="caption">School</h1></v-flex><v-spacer /><v-flex shrink class="py-0"><h1 class="caption">65%</h1></v-flex>
+                    </v-layout>
+                    <v-progress-linear color="white" height="10" value="45" class="my-0"></v-progress-linear>
+                  </v-card-text>
+                </v-card>
+              </v-flex>
+              <v-flex xs8 class="pl-0 pb-0">
+                <v-toolbar dense flat>
+                  <v-overflow-btn
+                    :items="items"
+                    label="Select data"
+                    hide-details
+                    class="pa-0"
+                  ></v-overflow-btn>
+                <v-icon class="success--text">keyboard_arrow_up</v-icon>
+                <h1 class="title font-weight-bold success--text">27%</h1>
+                </v-toolbar>
+                <line-chart class="mt-2" :height="140" />
+              </v-flex>
+            </v-layout>
+          </v-card-text>
+        </v-slide-y-transition>
+        </v-card>
+      </v-flex>
+
+      <v-flex xs12 md4>
+        <v-menu
+      v-model="menu"
+      :close-on-content-click="false"
+      offset-y
+    >
+        <v-card slot="activator" ripple class="pa-0">
+        <v-list three-line class="pa-0 primary darken-1" dark>
+          <v-list-tile>
+            <v-list-tile-content>
+              <v-list-tile-title class="title">
+                Science Proficiency
+              </v-list-tile-title>
+              <v-list-tile-sub-title>
+                <h1 class="caption">Percentage of students who scored proficient (levels 4 + 5) on the state science assessment.</h1>
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+              <h1 class="display-2 font-weight-bold">98%</h1>
+          </v-list-tile>
+        </v-list>
+        <v-card-actions class="pa-0">
+          <v-btn block color="primary">
+            Learn More
+            <v-icon right class="amber--text">{{ engprof ? 'fa fa-minus-circle' : 'fa fa-plus-circle' }}</v-icon>
+          </v-btn>
+        </v-card-actions>
+        </v-card>
+        <v-card>
+        <v-card-text class="pa-0">
+            <v-layout row>
+              <v-flex xs4 class="pr-0 pb-0">
+                <v-card flat tile dark color="primary lighten-1">
+                  <v-card-title>COMPARE:</v-card-title>
+                  <v-card-text class="pb-5">
+                    <v-layout row>
+                    <v-flex shrink  class="py-0"><h1 class="caption">Mississippi</h1></v-flex><v-spacer /><v-flex shrink class="py-0"><h1 class="caption">65%</h1></v-flex>
+                    </v-layout>
+                    <v-progress-linear color="white" height="10" value="45" class="my-0"></v-progress-linear>
+                    <v-layout row>
+                    <v-flex shrink  class="py-0"><h1 class="caption">District</h1></v-flex><v-spacer /><v-flex shrink class="py-0"><h1 class="caption">65%</h1></v-flex>
+                    </v-layout>
+                    <v-progress-linear color="white" height="10" value="45" class="my-0"></v-progress-linear>
+                    <v-layout row>
+                    <v-flex shrink  class="py-0"><h1 class="caption">School</h1></v-flex><v-spacer /><v-flex shrink class="py-0"><h1 class="caption">65%</h1></v-flex>
+                    </v-layout>
+                    <v-progress-linear color="white" height="10" value="45" class="my-0"></v-progress-linear>
+                  </v-card-text>
+                </v-card>
+              </v-flex>
+              <v-flex xs8 class="pl-0 pb-0">
+                <v-toolbar dense flat>
+                  <v-overflow-btn
+                    :items="items"
+                    label="Select data"
+                    hide-details
+                    class="pa-0"
+                  ></v-overflow-btn>
+                <v-icon class="success--text">keyboard_arrow_up</v-icon>
+                <h1 class="title font-weight-bold success--text">27%</h1>
+                </v-toolbar>
+                <line-chart class="mt-2" :height="140" />
+              </v-flex>
+            </v-layout>
+          </v-card-text>
+          </v-card>
+        </v-menu>
+      </v-flex>
+
     </v-layout>
   </v-container>
 </section>
-
-    <section class="teal lighten-5">
-      <v-container grid-list-sm>
-        <v-layout row wrap align-center>
-          <v-flex xs12 md4>
-            <line-chart :height="100"></line-chart>
-            <h1 class="headline font-weight-bold">Math Components</h1>
-            <h1 class="subheading">Measurements of student performance on the statewide math assessment.</h1>
-          </v-flex>
-          <v-flex xs12 md8>
-            <v-layout row wrap>
-              <v-flex xs4>
-                <gauge-chart :height="130" />
-                <h1 class="title pt-3 text-xs-center">Math Performance</h1>
-              </v-flex>
-              <v-flex xs4>
-                <gauge-chart :height="130" />
-                <h1 class="title pt-3 text-xs-center">Math Proficiency</h1>
-              </v-flex>
-              <v-flex xs4>
-                <gauge-chart :height="130" />
-                <h1 class="title pt-3 text-xs-center">Math Growth, L25%</h1>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </section>
-
-    <section class="amber lighten-5">
-      <v-container grid-list-sm>
-        <v-layout row wrap align-center>
-          <v-flex xs12 md4>
-            <h1 class="headline font-weight-bold">English Language</h1>
-            <h1 class="subheading">Measurements of student performance on the statewide math assessment.</h1>
-          </v-flex>
-          <v-flex xs12 md8>
-            <v-layout row wrap>
-              <v-flex xs4>
-                <gauge-chart :height="130" />
-                <h1 class="title pt-3 text-xs-center">English Performance</h1>
-              </v-flex>
-              <v-flex xs4>
-                <gauge-chart :height="130" />
-                <h1 class="title pt-3 text-xs-center">English Proficiency</h1>
-              </v-flex>
-              <v-flex xs4>
-                <gauge-chart :height="130" />
-                <h1 class="title pt-3 text-xs-center">English Growth, L25%</h1>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </section>
 
   </v-app>
 </template>
@@ -451,8 +443,10 @@ export default {
       dialog: false,
       loading: false,
       show: false,
+      mathprof: false,
+      engprof: false,
       entity: [],
-      items: ['Foo', 'Bar', 'Fizz', 'Buzz']
+      items: ['Trend', 'Gender', 'Race', 'Special Population']
     }
   },
   mounted () {
